@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style type="text/css">
+        body {
+            margin-top: 150px;
+            text-align: center
+        }
+
+        #maze_canvas {
+            border: 1px solid #c3c3c3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Maze Game</p>
+
+    <canvas id="maze_canvas" width="512px" height="256px">
+        Your browser does not support the canvas element.
+    </canvas>
+
+    <script src="base-function.js"></script>
+    <script src="maze-model.js"></script>
+    <script src="square-man-model.js"></script>
+    <script src="maze-controller.js"></script>
+    <script type="text/javascript">
+        initMazeGame();
+    </script>
+</body>
+
+</html>
