@@ -119,11 +119,15 @@ function handleMobileDevice(){
 	// 	lastPoint = newPoint
 	// };
 
+	// disable scroll
+	document.body.style.overflow='hidden';        
+    document.addEventListener("touchmove", (e) => {e.preventDefault();});
+
 	document.addEventListener("touchstart",function(e){
         lastPoint.x = e.touches[0].clientX;
 		lastPoint.y = e.touches[0].clientY;
     })
-	
+
     document.addEventListener("touchmove",function(e){
         let newPoint = new Point(e.touches[0].clientX, e.touches[0].clientY);
 		moveSquare(getDirection(newPoint));
