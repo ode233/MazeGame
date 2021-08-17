@@ -106,16 +106,27 @@ function handle(e) {
 handleMobileDevice()
 /** handles the user's inputs and moves the square accordingly for mobile device*/
 function handleMobileDevice(){
-	let canvas = document.getElementById("maze_canvas");
+	// let canvas = document.getElementById("maze_canvas");
 
-	canvas.ontouchstart = function (e) {
-		lastPoint.x = e.touches[0].clientX;
+	// canvas.ontouchstart = function (e) {
+	// 	lastPoint.x = e.touches[0].clientX;
+	// 	lastPoint.y = e.touches[0].clientY;
+	// };
+
+	// canvas.ontouchmove = function (e) {
+	// 	let newPoint = new Point(e.touches[0].clientX, e.touches[0].clientY);
+	// 	moveSquare(getDirection(newPoint))
+	// 	lastPoint = newPoint
+	// };
+
+	document.addEventListener("touchstart",function(e){
+        lastPoint.x = e.touches[0].clientX;
 		lastPoint.y = e.touches[0].clientY;
-	};
-
-	canvas.ontouchmove = function (e) {
-		let newPoint = new Point(e.touches[0].clientX, e.touches[0].clientY);
-		moveSquare(getDirection(newPoint))
+    })
+	
+    document.addEventListener("touchmove",function(e){
+        let newPoint = new Point(e.touches[0].clientX, e.touches[0].clientY);
+		moveSquare(getDirection(newPoint));
 		lastPoint = newPoint
-	};
+    })
 }
