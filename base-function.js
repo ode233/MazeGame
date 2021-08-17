@@ -1,4 +1,13 @@
 let canvas = document.getElementById("maze_canvas");
+
+// adjust content size
+if (window.screen.height < window.screen.width) {
+    canvas.style.height = "80%"
+}
+else {
+    canvas.style.width = "80%"
+}
+
 let ctx = canvas.getContext("2d");
 ctx.lineWidth = 1
 
