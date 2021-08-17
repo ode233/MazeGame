@@ -119,9 +119,11 @@ function handleMobileDevice(){
 	// 	lastPoint = newPoint
 	// };
 
-	// disable scroll
-	document.body.style.overflow='hidden';        
-    document.addEventListener("touchmove", (e) => {e.preventDefault();});
+	// disable scroll     
+    document.addEventListener("touchmove",function(e){
+		e.preventDefault();
+		e.stopPropagation();
+	  }, false);
 
 	document.addEventListener("touchstart",function(e){
         lastPoint.x = e.touches[0].clientX;
