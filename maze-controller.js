@@ -10,6 +10,7 @@ var maze;
 var squareMan;
 
 var successFlag = false;
+var lastPoint = new Point();
 
 /** initial a MazeGame. */
 function initMazeGame() {
@@ -59,8 +60,8 @@ function moveSquare(direction) {
 	}
 }
 
-/** handles the user's inputs and moves the square accordingly */
 window.addEventListener('keydown', handle, false);
+/** handles the user's inputs and moves the square accordingly */
 function handle(e) {
 	switch (e.keyCode) {
 		// r key for restart
@@ -100,4 +101,21 @@ function handle(e) {
 			squareMan.incSize();
 			break
 	}
+}
+
+handleMobileDevice()
+/** handles the user's inputs and moves the square accordingly for mobile device*/
+function handleMobileDevice(){
+	let canvas = document.getElementById("maze_canvas");
+
+	canvas.ontouchstart = function (e) {
+		lastPoint.x = e.touches[0].clientX;
+		lastPoint.y = e.touches[0].clientY;
+	};
+
+	canvas.ontouchmove = function (e) {
+		let newPoint = new Point(e.touches[0].clientX, e.touches[0].clientY);
+		moveSquare(getDirection(newPoint))
+		lastPoint = newPoint
+	};
 }

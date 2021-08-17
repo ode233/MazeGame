@@ -37,6 +37,16 @@ var size = SIZE;
 const SCORE = 119
 var score = SCORE;
 
+
+class Point{
+
+    constructor(x, y) {
+        this.x = x;
+        this.y = y
+    }
+}
+
+
 function generateSymmetricCircles(ox, oy, c) {
     // c is to control generate the left or right
     // if c==1,generate the left
@@ -257,3 +267,25 @@ function arrayHasElement(array, element) {
     }
     return false;
 }
+
+function getDirection(newPoint) {
+    let xDiff = newPoint.x - lastPoint.x;
+    let yDiff = newPoint.y - lastPoint.y;
+    if (Math.abs(xDiff) < Math.abs(yDiff)) {
+        if (yDiff < 0) {
+            return 1
+        } 
+        else {
+            return 2
+        }
+    }
+    else {
+        if (xDiff < 0) {
+            return 3
+        }
+        else {
+            return 4
+        }
+    }
+}
+
